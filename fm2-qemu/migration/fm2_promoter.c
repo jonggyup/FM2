@@ -16,14 +16,15 @@
 #include <sys/epoll.h>
 #include <time.h>
 
+#include "fm2_promoter.h"
 #include "qemu/osdep.h"
 #include "qemu/thread.h"
 #include "qemu/error-report.h"
+#include <stdatomic.h>
 
 /* Jonggyu: this file is the QEMU-side FMLift implementation. Upstream QEMU
  * does not promote CXL-backed guest memory; FM2 uses userfaultfd to serialize
  * missing/write-protect faults while a 2 MiB region is copied to DRAM. */
-int qemu_promote_vm_cxl_memory(void *vm_cxl_base, size_t vm_cxl_size);
 int promote_cxl_to_dram(void *start_addr, size_t length);
 
 #define METADATA_SIZE   (10 * 1024 * 1024)   /* 10MB */
@@ -1663,11 +1664,6 @@ int qemu_promote_vm_cxl_memory(void *vm_cxl_base, size_t vm_cxl_size)
  * is deliberately delegated to the QEMU entry point above: it owns the
  * detached worker and the /proc/self/maps walk, which keeps this legacy
  * interface from starting a second, competing promotion pass.
- *
- * The range arguments are retained for ABI/source compatibility with the
- * original command.  The active implementation discovers the live DevDAX
- * mappings instead of trusting the command's shared-memory mapping, which
- * may already have been unmapped by the HMP handler.
  */
 void fm2_promoter_start(void *devdax_hva_base, uint64_t bytes)
 {

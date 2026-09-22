@@ -43,18 +43,48 @@ replacement for the paper's two-headed shared CXL setup.
 
 ## Build
 
-Build the host kernel from its source directory:
+### Prerequisites
 
-```sh
+Install the required dependencies on Ubuntu:
+
+```bash
+sudo apt update
+sudo apt install -y build-essential bc bison flex libssl-dev libelf-dev \
+    libncurses-dev dwarves python3 python3-venv python3-pip \
+    python3-setuptools ninja-build pkg-config libglib2.0-dev \
+    libpixman-1-dev libnuma-dev
+```
+
+### Build and Install Host Kernel
+
+```bash
 cd fm2-kernel
 make defconfig                 # or provide a testbed-specific .config
 make -j"$(nproc)"
+sudo make modules_install
+sudo make install
+sudo update-grub
+sudo reboot
 ```
 
-Build QEMU separately:
+After reboot, verify that the FM2 kernel is running:
 
-```sh
-cd ../fm2-qemu
-./configure --target-list=x86_64-softmmu
+```bash
+uname -r
+```
+
+### Build QEMU
+
+```bash
+cd fm2-qemu
+./configure --target-list=x86_64-softmmu --extra-cflags="-mavx"
 make -j"$(nproc)"
 ```
+
+The FM2 QEMU binary is generated at `fm2-qemu/build/qemu-system-x86_64`.
+
+Verify the build with:
+
+```bash
+./build/qemu-system-x86_64 --version
+

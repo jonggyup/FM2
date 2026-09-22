@@ -584,10 +584,7 @@ struct kvm_memory_slot {
 	gfn_t base_gfn;
 	unsigned long npages;
 	unsigned long *dirty_bitmap;
-	/* Jonggyu: Delta from upstream Linux v6.8.0. FM2 keeps a private bitmap
-	 * because its huge-page polling
-	 * cadence is independent of KVM's ordinary 4 KiB migration bitmap. */
-	unsigned long *fmsync_dirty_bitmap;
+	unsigned long *fmsync_dirty_bitmap; // Zezhou: huge-page granularity dirty bitmap.
 	struct kvm_arch_memory_slot arch;
 	unsigned long userspace_addr;
 	u32 flags;
