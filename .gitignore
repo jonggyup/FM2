@@ -1,95 +1,51 @@
 # --------------------------------------------------
 # Excluded project
 # --------------------------------------------------
-fm2-operation/
+/fm2-operation/
 
 
 # --------------------------------------------------
 # Linux kernel: fm2-kernel
 # --------------------------------------------------
 
-# Recommended out-of-tree build directories
-fm2-kernel/build/
-fm2-kernel/out/
-fm2-kernel/build-*/
+# Out-of-tree build directories
+/fm2-kernel/build/
+/fm2-kernel/out/
+/fm2-kernel/build-*/
 
 # Kernel configuration
-fm2-kernel/.config
-fm2-kernel/.config.old
+/fm2-kernel/.config
+/fm2-kernel/.config.old
 
-# Kernel build outputs
-fm2-kernel/vmlinux
-fm2-kernel/vmlinux.*
-fm2-kernel/System.map
-fm2-kernel/Module.symvers
-fm2-kernel/modules.order
-fm2-kernel/modules.builtin
-fm2-kernel/modules.builtin.modinfo
+# Top-level kernel build outputs
+/fm2-kernel/vmlinux
+/fm2-kernel/vmlinux.*
+/fm2-kernel/System.map
+/fm2-kernel/Module.symvers
+/fm2-kernel/modules.order
+/fm2-kernel/modules.builtin
+/fm2-kernel/modules.builtin.modinfo
 
-# Generated kernel files
-fm2-kernel/include/config/
-fm2-kernel/include/generated/
-fm2-kernel/arch/*/include/generated/
-
-# Compilation artifacts
-fm2-kernel/**/*.o
-fm2-kernel/**/*.o.*
-fm2-kernel/**/*.a
-fm2-kernel/**/*.so
-fm2-kernel/**/*.ko
-fm2-kernel/**/*.mod
-fm2-kernel/**/*.mod.c
-fm2-kernel/**/*.cmd
-fm2-kernel/**/*.d
-
-# Kernel temporary/generated files
-fm2-kernel/**/*.tmp
-fm2-kernel/**/*.gcno
-fm2-kernel/**/*.gcda
-fm2-kernel/**/.tmp_*
-fm2-kernel/**/.cache.mk
-fm2-kernel/**/built-in.a
+# Generated files from accidental in-tree builds
+/fm2-kernel/include/config/
+/fm2-kernel/include/generated/
+/fm2-kernel/arch/*/include/generated/
 
 
 # --------------------------------------------------
 # QEMU: fm2-qemu
 # --------------------------------------------------
 
-# Recommended QEMU build directories
-fm2-qemu/build/
-fm2-qemu/build-*/
-fm2-qemu/out/
+# Out-of-tree build directories
+/fm2-qemu/build/
+/fm2-qemu/build-*/
+/fm2-qemu/out/
 
-# Meson / Ninja
-fm2-qemu/meson-private/
-fm2-qemu/meson-info/
-fm2-qemu/meson-logs/
-fm2-qemu/.ninja_deps
-fm2-qemu/.ninja_log
-fm2-qemu/build.ninja
-fm2-qemu/compile_commands.json
-
-# QEMU build/config outputs
-fm2-qemu/config-host.h
-fm2-qemu/config-host.mak
-fm2-qemu/config.status
-fm2-qemu/config.log
-
-# Compilation artifacts
-fm2-qemu/**/*.o
-fm2-qemu/**/*.a
-fm2-qemu/**/*.so
-fm2-qemu/**/*.d
-
-# Python cache
-fm2-qemu/**/__pycache__/
-fm2-qemu/**/*.pyc
-fm2-qemu/**/*.pyo
-
-# Test / coverage artifacts
-fm2-qemu/**/*.gcno
-fm2-qemu/**/*.gcda
-fm2-qemu/.coverage
+# Top-level QEMU configuration/build outputs
+/fm2-qemu/config-host.h
+/fm2-qemu/config-host.mak
+/fm2-qemu/config.status
+/fm2-qemu/config.log
 
 
 # --------------------------------------------------
