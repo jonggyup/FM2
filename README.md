@@ -5,9 +5,10 @@ between source and destination hosts. It targets a multi-headed CXL memory
 device and minimizes service interruption by maintaining a current VM image in
 shared memory before switchover.
 
-This repository is the artifact for the FM2 paper accepted at ACM SIGOPS ATC
-2026. The included functional evaluation can run without the original CXL
-testbed by using Device DAX on a multisocket NUMA machine.
+This repository is the artifact for **“FM2: Fast Live VM Migration in CXL
+Memory Pools,”** accepted at ACM SIGOPS ATC 2026. The included functional
+evaluation can run without the original CXL testbed by using Device DAX on a
+multisocket NUMA machine.
 
 ## Overview
 
@@ -69,6 +70,17 @@ fm2-qemu source migration path ---- shared memory ---- destination restore
 approximate hotness. `fm2-qemu` implements the migration protocol and shared
 image. `fm2-operation` supplies the deployment and validation harness; it is
 not part of the core FM2 mechanism.
+
+## Software versions
+
+| Component | Version |
+| --- | --- |
+| FM2 host kernel | Linux `6.8.0` |
+| Guest VM kernel | Linux `5.15.0` |
+| FM2 QEMU | QEMU `8.2.91` |
+
+These are the identifiers reported by the included source trees. The host must
+boot the FM2 kernel, while the guest image uses the separate Linux 5.15 kernel.
 
 ## Hardware configurations
 
