@@ -1,0 +1,19 @@
+[WARN]  Running against a source checkout. In order to get our runtime dependencies we'll have to invoke Maven. Depending on the state of your system, this may take ~30-45 seconds
+[DEBUG]  Running 'mvn -pl site.ycsb:redis-binding -am package -DskipTests dependency:build-classpath -DincludeScope=compile -Dmdep.outputFilterFile=true'
+java -cp /home/jonggyu/working/qemu-study/apps/ycsb/redis/conf:/home/jonggyu/working/qemu-study/apps/ycsb/redis/target/redis-binding-0.18.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/htrace/htrace-core4/4.1.0-incubating/htrace-core4-4.1.0-incubating.jar:/root/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.4/HdrHistogram-2.1.4.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.4/jackson-mapper-asl-1.9.4.jar:/root/.m2/repository/redis/clients/jedis/2.9.0/jedis-2.9.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.4/jackson-core-asl-1.9.4.jar:/home/jonggyu/working/qemu-study/apps/ycsb/core/target/core-0.18.0-SNAPSHOT.jar site.ycsb.Client -db site.ycsb.db.RedisClient -P workloads/workloada -threads 4 -p redis.host=10.10.20.254 -p redis.port=12345 -p recordcount=30000000 -p operationcount=1000 -p status.interval=0 -p measurementtype=raw -p exporter=site.ycsb.measurements.exporter.CSVMeasurementsExporter -p exportfile=/home/jonggyu/working/qemu-study/workloada_client0.csv -t
+Command line: -db site.ycsb.db.RedisClient -P workloads/workloada -threads 4 -p redis.host=10.10.20.254 -p redis.port=12345 -p recordcount=30000000 -p operationcount=1000 -p status.interval=0 -p measurementtype=raw -p exporter=site.ycsb.measurements.exporter.CSVMeasurementsExporter -p exportfile=/home/jonggyu/working/qemu-study/workloada_client0.csv -t
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+Could not find exporter site.ycsb.measurements.exporter.CSVMeasurementsExporter, will use default text reporter.
+java.lang.ClassNotFoundException: site.ycsb.measurements.exporter.CSVMeasurementsExporter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:421)
+	at java.base/java.lang.Class.forName(Class.java:412)
+	at site.ycsb.Client.exportMeasurements(Client.java:231)
+	at site.ycsb.Client.main(Client.java:392)

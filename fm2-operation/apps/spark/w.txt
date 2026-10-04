@@ -1,0 +1,11 @@
+spark_als
+spark_gbt
+spark_lda
+spark_lr
+spark_pca
+spark_rf
+spark_sort
+spark_svd
+spark_svm
+spark_terasort
+spark_wordcount

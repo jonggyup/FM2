@@ -1,0 +1,42 @@
+diff --git a/src/frontend/org/voltcore/network/VoltPort.java b/src/frontend/org/voltcore/network/VoltPort.java
+--- a/src/frontend/org/voltcore/network/VoltPort.java
++++ b/src/frontend/org/voltcore/network/VoltPort.java
+@@ -170,16 +170,9 @@ public class VoltPort implements Connection
+                     int read = fillReadStream(maxRead);
+                     if (read > 0) {
+-                        try {
+-                            ByteBuffer message;
+-                            while ((message = m_handler.retrieveNextMessage(readStream())) != null) {
+-                                m_handler.handleMessage(message, this);
+-                                m_messagesRead++;
+-                            }
+-                        } catch (VoltProtocolHandler.BadMessageLength e) {
+-                            String err = String.format("Bad message length, from %s%s", m_remoteHostAndAddressAndPort,
+-                                                       m_messagesRead != 0 ? "" : "; this may indicate mismatched SSL/TLS setting or non-VoltDB sender");
+-                            networkLog.error(err, e);
+-                            throw e;
++                        ByteBuffer message;
++                        while ((message = m_handler.retrieveNextMessage(readStream())) != null) {
++                            m_handler.handleMessage(message, this);
++                            m_messagesRead++;
+                         }
+                     }
+                 }
+diff --git a/src/frontend/org/voltcore/network/VoltNetwork.java b/src/frontend/org/voltcore/network/VoltNetwork.java
+--- a/src/frontend/org/voltcore/network/VoltNetwork.java
++++ b/src/frontend/org/voltcore/network/VoltNetwork.java
+@@ -423,6 +423,14 @@ public class VoltNetwork extends Thread {
+             port.m_running = false;
+             // no need to do anything here until
+             // shutdown makes more sense
++        } catch (VoltProtocolHandler.BadMessageLength e) {
++            // A corrupt length destroys framing for this socket, so it cannot
++            // be resynchronized safely. Drop only this connection without a
++            // stack trace; other ports remain live and reconnecting clients
++            // can continue on a fresh stream.
++            port.die();
++            networkLog.debug("Dropped malformed client connection from "
++                    + port.getHostnameOrIP());
+         } catch (Exception e) {
+             port.die();
+             final String trimmed = e.getMessage() == null ? "" : e.getMessage().trim();

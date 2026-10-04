@@ -1,0 +1,11 @@
+*.dat
+*.pid
+vm_dst.txt
+vm_src.txt
+vm_dst_*.txt
+vm_src_*.txt
+# Ignore everything under kernel-image/
+kernel-image/*
+linux-5.15.tar.xz
+# Keep create-image.sh
+!kernel-image/create-image.sh

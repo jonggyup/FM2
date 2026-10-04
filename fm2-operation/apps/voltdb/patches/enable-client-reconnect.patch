@@ -1,0 +1,13 @@
+diff --git a/src/frontend/org/voltdb/client/exampleutils/ClientConnection.java b/src/frontend/org/voltdb/client/exampleutils/ClientConnection.java
+--- a/src/frontend/org/voltdb/client/exampleutils/ClientConnection.java
++++ b/src/frontend/org/voltdb/client/exampleutils/ClientConnection.java
+@@ -86,6 +86,9 @@ public class ClientConnection implements Closeable
+         // Create configuration
+         final ClientConfig config = new ClientConfig(user, password);
+         config.setHeavyweight(isHeavyWeight);
++        // A malformed frame causes VoltDB to close only the affected socket.
++        // Reconnect so benchmark traffic can resume on a fresh connection.
++        config.setReconnectOnConnectionLoss(true);
+         if (maxOutstandingTxns > 0)
+             config.setMaxOutstandingTxns(maxOutstandingTxns);
+ 

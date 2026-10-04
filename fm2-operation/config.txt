@@ -1,0 +1,27 @@
+#This file includes configuration values to run and setup FM2
+SHARED_STORAGE=/users/jonggyu/FM2/fm2-operation #Location of FM2-operation
+KERNEL_VER=5.15 #VM kernel version
+NIC_NAME=enp24s0f1np1 #NIC name
+SRC_IP=127.0.0.1 # Source VM's host network IP
+DST_IP=127.0.0.1 # Dst VM's host network IP
+BACKUP_IP=127.0.0.1 # Backup VM's host network IP
+VM_IP=10.0.0.1 # VM's network IP
+MIGRATION_PORT=4444
+SRC_CONTROL_PORT=55555
+DST_CONTROL_PORT=56666
+BACKUP_CONTROL_PORT=57777
+SRC_NUMA=0 # Source VM's NUMA ID. Originally the src and dst VM should locate different machines but we simulate the situation using multi socket single machine
+DST_NUMA=1
+CXL_NUMA=0 # Where the shared memory will place
+SRC_CPUSET=0,4,8,12 # Pinning src VM's vCPU to these
+DST_CPUSET=1,5,9,13 # Pinning dst VM's vCPU to these. To simulate migration across sockets, we recommend set them onto a different one from SRC_CPUSET
+NIC_INTERRUPT_CORE=2
+VHOST_CORE=2
+MIGRATION_CORE=3
+META_STATE_LENGTH=1048576 # Metadata sizes
+HOT_PAGE_STATE_LENGTH=9437184 # hot page record sizes
+CXL_DEV_PATH=/dev/dax0.0 # CXL PATH
+CXL_WINDOW_LEN_BYTES=68719476736
+CXL_PRIMARY_MIN_MB=1024
+IS_SOURCE_VM=1 #Originally we have different config file for each VM but in single machien evalution, we override it using FM_SOURCE_VM value embedded in controller codes.
+CXL_BASE_OFF_BYTES=0     # 64 GiB

@@ -1,0 +1,55 @@
+[OVERALL], RunTime(ms), 48
+[OVERALL], Throughput(ops/sec), 20833.333333333332
+[TOTAL_GCS_G1_Young_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.0
+[TOTAL_GCS_G1_Concurrent_GC], Count, 0
+[TOTAL_GC_TIME_G1_Concurrent_GC], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Concurrent_GC], Time(%), 0.0
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 0
+[TOTAL_GC_TIME], Time(ms), 0
+[TOTAL_GC_TIME_%], Time(%), 0.0
+[READ], Total Operations, 497
+[READ], Below is a summary of latency in microseconds:, -1
+[READ], Average, 109.9195171026157
+[READ], Min, 43
+[READ], Max, 4301
+[READ], p1, 48
+[READ], p5, 56
+[READ], p50, 84
+[READ], p90, 133
+[READ], p95, 149
+[READ], p99, 504
+[READ], p99.9, 4301
+[READ], p99.99, 4301
+[READ], Return=OK, 497
+[CLEANUP], Total Operations, 4
+[CLEANUP], Below is a summary of latency in microseconds:, -1
+[CLEANUP], Average, 78.25
+[CLEANUP], Min, 19
+[CLEANUP], Max, 234
+[CLEANUP], p1, 19
+[CLEANUP], p5, 19
+[CLEANUP], p50, 34
+[CLEANUP], p90, 234
+[CLEANUP], p95, 234
+[CLEANUP], p99, 234
+[CLEANUP], p99.9, 234
+[CLEANUP], p99.99, 234
+[UPDATE], Total Operations, 503
+[UPDATE], Below is a summary of latency in microseconds:, -1
+[UPDATE], Average, 105.27435387673957
+[UPDATE], Min, 44
+[UPDATE], Max, 2858
+[UPDATE], p1, 53
+[UPDATE], p5, 62
+[UPDATE], p50, 85
+[UPDATE], p90, 132
+[UPDATE], p95, 160
+[UPDATE], p99, 284
+[UPDATE], p99.9, 2858
+[UPDATE], p99.99, 2858
+[UPDATE], Return=OK, 503
