@@ -178,10 +178,7 @@ See [LICENSE](LICENSE). The repository includes modified Linux and QEMU source
 trees whose individual files may carry their own licensing notices.
 
 
-```
 ## Artifact DOI
 
 The artifact evaluated for USENIX ATC '26 is archived on Zenodo:
-```
-DOI: https://doi.org/10.5281/zenodo.23147401
-```
+DOI: https://doi.org/10.5281/zenodo.23147401a
