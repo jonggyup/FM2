@@ -153,7 +153,6 @@ throughput after handoff. Exact timing and throughput are machine-dependent.
 
 - [FUNCTIONALITY.md](FUNCTIONALITY.md): detailed execution flow, function and
   command maps, build/setup procedure, evaluation checks, and troubleshooting.
-- [FM2 paper](fm2-operation/paper-fm2.pdf): system design and evaluation.
 
 ## Questions
 
