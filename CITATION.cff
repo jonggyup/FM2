@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "FM2: Fast Live VM Migration in CXL Memory Pools"
+message: "If you use this artifact, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: Park
+    given-names: Jonggyu
+version: "ae-v1.0"
+date-released: "2026-10-04"
+repository-code: "https://github.com/jonggyup/FM2"
